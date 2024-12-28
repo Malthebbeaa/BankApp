@@ -2,10 +2,13 @@ package gui.actions;
 
 import MyJDBC.MyJDBC;
 import application.model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -18,6 +21,7 @@ public class TransferWindow extends Stage {
     private User userTo;
     private TextField userToIdTxf, amountTxf;
     private BigDecimal amount;
+    private ComboBox<User> userComboBox;
 
     public TransferWindow(String titel, User userFrom){
         this.userFrom = userFrom;
@@ -41,10 +45,17 @@ public class TransferWindow extends Stage {
         amountTxf = new TextField();
         pane.add(amountTxf, 1,0);
 
-        Label userToLbl = new Label("UserID of receiver: ");
+        ObservableList usersList = FXCollections.observableArrayList();
+        for (User user : MyJDBC.getUsers()) {
+            if (user.getUserId() != userFrom.getUserId()){
+                usersList.add(user);
+            }
+        }
+
+        Label userToLbl = new Label("Receiving user: ");
         pane.add(userToLbl, 0,1);
-        userToIdTxf = new TextField();
-        pane.add(userToIdTxf, 1,1);
+        userComboBox = new ComboBox<>(usersList);
+        pane.add(userComboBox,1,1);
 
         Button transferButton = new Button("Transfer");
         transferButton.setOnAction(event -> {
@@ -56,7 +67,7 @@ public class TransferWindow extends Stage {
     }
 
     public boolean transferAction(){
-        int userToId = Integer.valueOf(userToIdTxf.getText());
+        int userToId = userComboBox.getValue().getUserId();
         int userFromId = MyJDBC.getUserId(userFrom.getUsername());
         amount = BigDecimal.valueOf(Integer.valueOf(amountTxf.getText()));
         return MyJDBC.transfer(userToId, userFromId, amount);

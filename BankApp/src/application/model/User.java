@@ -43,4 +43,9 @@ public class User {
     public BigDecimal getCurrentBalance() {
         return currentBalance;
     }
+
+    @Override
+    public String toString() {
+        return "ID = " + userId + ", username = " + username;
+    }
 }

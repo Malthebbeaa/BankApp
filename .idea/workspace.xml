@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cbe9dad-09d5-42c4-b534-914ab57454ea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Bank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/BankApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/BankApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/application/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/application/model/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/application/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/application/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/DepostitWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/DepostitWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/LoginGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/PastTransactionWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/PastTransactionWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/RegisterGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/RegisterGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/TransferWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/TransferWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/WithdrawWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/WithdrawWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +59,7 @@
       <module name="BankApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="gui.*" />
+          <option name="PATTERN" value="gui.actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,4 +74,15 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
 </project>

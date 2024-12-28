@@ -182,4 +182,23 @@ public class MyJDBC {
         }
     }
 
+    public static ArrayList<User> getUsers(){
+        try {
+            ArrayList<User> users = new ArrayList<>();
+            Connection minConnection = DriverManager
+                    .getConnection("jdbc:sqlserver://localhost;databaseName=BankingDatabase;user=sa;password=MyStrongPass123;");
+
+            PreparedStatement preparedStatement = minConnection.prepareStatement("SELECT * FROM BankUser");
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()){
+                User user = new User(res.getInt(1), res.getString(2), res.getString(3), res.getBigDecimal(4));
+                users.add(user);
+            }
+
+            return users;
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
 }
