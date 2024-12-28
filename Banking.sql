@@ -142,25 +142,3 @@ INSERT INTO BankTransaction (user_id, transactionType, transactionAmount, transa
 (@fromId, 'TransferOut', @transferAmount, GETDATE())
 INSERT INTO BankTransaction (user_id, transactionType, transactionAmount, transactionDate) VALUES
 (@toId, 'TransferIn', @transferAmount, GETDATE())
-
-
-
-
---test data
-INSERT INTO BankUser(username, user_password) VALUES
-('test', '12345'),
---('Løve', '123', 20.00),
---('Løve', '123', 20.00)
-
-EXEC deposit 1, 20
-EXEC withdraw 1, 30
-EXEC pastTransactions 1
-
-EXEC transferAction 1, 3, 20
-SELECT * FROM BankUser 
-
-SELECT * FROM BankTransaction
-INNER JOIN BankUser ON user_id = BankUser.id
-WHERE user_id = 1
-
-SELECT id FROM BankUser WHERE username = 'Malthebb'
