@@ -93,8 +93,8 @@ public class RegisterGui extends Application {
                 alertPassword.showAndWait();
             }
         });
-        registerButton.setMaxWidth(Double.MAX_VALUE); // Make button fill the column width
-        GridPane.setHalignment(registerButton, HPos.CENTER); // Align center
+        registerButton.setMaxWidth(Double.MAX_VALUE);
+        GridPane.setHalignment(registerButton, HPos.CENTER);
 
         Label registerLink = new Label("Already have an account? Login here!");
         registerLink.setStyle("-fx-text-fill: blue; -fx-underline: true;");

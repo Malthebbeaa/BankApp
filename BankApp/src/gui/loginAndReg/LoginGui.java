@@ -37,10 +37,9 @@ public class LoginGui extends Application {
         pane.setPadding(new Insets(20));
         pane.setAlignment(Pos.CENTER);
 
-
         Label bankingLbl = new Label("Banking Application");
+        bankingLbl.setFont(new Font(32));
         pane.add(bankingLbl, 0,0);
-        bankingLbl.setFont(new Font(24));
         GridPane.setHalignment(bankingLbl, HPos.CENTER);
         bankingLbl.setPadding(new Insets(50));
 

@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7cbe9dad-09d5-42c4-b534-914ab57454ea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/application/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/application/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/loginAndReg/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/loginAndReg/LoginGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/loginAndReg/RegisterGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/loginAndReg/RegisterGui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +53,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.App" />
       <module name="BankApp" />
@@ -67,9 +67,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BankGui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.BankGui" />
+      <module name="BankApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.BankGui" />
       </list>
     </recent_temporary>
   </component>

@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -55,6 +56,10 @@ public class BankGui extends Application {
 
         Button depositButton = new Button("Deposit");
         pane.add(depositButton,0,2);
+        depositButton.setPrefWidth(250);
+        depositButton.setPrefHeight(50);
+        depositButton.setFont(new Font("Arial", 24));
+
         depositButton.setOnAction(event -> {
             DepostitWindow depostitWindow = new DepostitWindow("Deposit", user);
             depostitWindow.showAndWait();
@@ -63,6 +68,10 @@ public class BankGui extends Application {
 
         Button withdrawButton = new Button("Withdraw");
         pane.add(withdrawButton,0,3);
+        withdrawButton.setPrefWidth(250);
+        withdrawButton.setPrefHeight(50);
+        withdrawButton.setFont(new Font("Arial", 24));
+
         withdrawButton.setOnAction(event -> {
             WithdrawWindow withdrawWindow = new WithdrawWindow("Withdraw", user);
             withdrawWindow.showAndWait();
@@ -71,6 +80,9 @@ public class BankGui extends Application {
 
         Button pastTransactionsButton = new Button("Past Transactions");
         pane.add(pastTransactionsButton,0,4);
+        pastTransactionsButton.setPrefWidth(250);
+        pastTransactionsButton.setPrefHeight(50);
+        pastTransactionsButton.setFont(new Font("Arial", 24));
         pastTransactionsButton.setOnAction(event -> {
             try {
                 PastTransactionWindow pastTransactionWindow = new PastTransactionWindow("PastTrans", user);
@@ -82,6 +94,9 @@ public class BankGui extends Application {
 
         Button transferButton = new Button("Transfer");
         pane.add(transferButton,0,5);
+        transferButton.setPrefWidth(250);
+        transferButton.setPrefHeight(50);
+        transferButton.setFont(new Font("Arial", 24));
         transferButton.setOnAction(event -> {
             TransferWindow transferWindow = new TransferWindow("Transfer", user);
             transferWindow.showAndWait();
@@ -90,6 +105,9 @@ public class BankGui extends Application {
 
         Button logoutButton = new Button("Logout");
         pane.add(logoutButton,0,7);
+        logoutButton.setPrefWidth(250);
+        logoutButton.setPrefHeight(50);
+        logoutButton.setFont(new Font("Arial", 24));
         logoutButton.setOnAction(event -> {
             LoginGui loginGui = new LoginGui();
             try {
