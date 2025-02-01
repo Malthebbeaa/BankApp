@@ -142,12 +142,3 @@ INSERT INTO BankTransaction (user_id, transactionType, transactionAmount, transa
 (@fromId, 'TransferOut', @transferAmount, GETDATE())
 INSERT INTO BankTransaction (user_id, transactionType, transactionAmount, transactionDate) VALUES
 (@toId, 'TransferIn', @transferAmount, GETDATE())
-
-
-DELETE BankUser WHERE user_password = 123
-
-SELECT * FROM BankUser
-SELECT * FROM BankTransaction
-
-SELECT * FROM BankTransaction 
-INNER JOIN BankUser ON BankUser.id = 1002
