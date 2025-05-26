@@ -47,8 +47,8 @@ public class DepostitWindow extends Stage {
 
     private void depositAction(){
         int userId = MyJDBC.getUserId(user.getUsername());
-        MyJDBC.deposit(userId, new BigDecimal(Integer.valueOf(amountTxf.getText())));
-        user.setCurrentBalance(user.getCurrentBalance().add(new BigDecimal(Integer.valueOf(amountTxf.getText()))));
+        MyJDBC.deposit(userId, new BigDecimal(Integer.valueOf(amountTxf.getText())), "", "");
+        //user.setCurrentBalance(user.getCurrentBalance().add(new BigDecimal(Integer.valueOf(amountTxf.getText()))));
         close();
     }
 }

@@ -1,19 +1,38 @@
 package application.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class User {
     private int userId;
     private String username;
-    private String password;
-    private BigDecimal currentBalance;
+
+    private ArrayList<Konto> konti;
 
 
-    public User(int userId, String username, String password, BigDecimal currentBalance){
+    public User(int userId, String username){
         this.userId = userId;
         this.username = username;
-        this.password = password;
-        this.currentBalance = currentBalance;
+        this.konti = new ArrayList<>();
+    }
+
+    public void addKonto(Konto konto) {
+        if (!konti.contains(konto)) {
+            konti.add(konto);
+        }
+    }
+    public ArrayList<Konto> getKonti() {
+        return konti;
+    }
+
+    public BigDecimal getTotalBalance() {
+        BigDecimal totalBalance = new BigDecimal(0);
+
+        for(Konto konto : konti) {
+            totalBalance.add(konto.getSaldo());
+        }
+
+        return totalBalance;
     }
 
     public void setUserId(int userId){this.userId = userId;}
@@ -21,13 +40,6 @@ public class User {
         this.username = username;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setCurrentBalance(BigDecimal currentBalance) {
-        this.currentBalance = currentBalance;
-    }
 
     public int getUserId() {
         return userId;
@@ -36,13 +48,6 @@ public class User {
         return username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public BigDecimal getCurrentBalance() {
-        return currentBalance;
-    }
 
     @Override
     public String toString() {

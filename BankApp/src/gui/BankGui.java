@@ -1,10 +1,7 @@
 package gui;
 
 import application.model.User;
-import gui.actions.DepostitWindow;
-import gui.actions.PastTransactionWindow;
-import gui.actions.TransferWindow;
-import gui.actions.WithdrawWindow;
+import gui.actions.*;
 import gui.loginAndReg.LoginGui;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -49,13 +46,25 @@ public class BankGui extends Application {
         username.setFont(new Font(24));
         pane.add(username, 0,0);
 
-        balanceLbl = new Label("Current Balance: $" + user.getCurrentBalance());
+        balanceLbl = new Label("Current Balance: $");
         balanceLbl.setFont(new Font(18));
         pane.add(balanceLbl,0,1);
 
 
+        Button kontiButton = new Button("Konti");
+        pane.add(kontiButton, 0,2);
+        kontiButton.setPrefWidth(250);
+        kontiButton.setPrefHeight(50);
+        kontiButton.setFont(new Font("Arial", 24));
+
+        kontiButton.setOnAction(event -> {
+            KontiWindow kontiWindow = new KontiWindow("Konti", user);
+            kontiWindow.showAndWait();
+
+        });
+
         Button depositButton = new Button("Deposit");
-        pane.add(depositButton,0,2);
+        pane.add(depositButton,0,3);
         depositButton.setPrefWidth(250);
         depositButton.setPrefHeight(50);
         depositButton.setFont(new Font("Arial", 24));
@@ -67,7 +76,7 @@ public class BankGui extends Application {
         });
 
         Button withdrawButton = new Button("Withdraw");
-        pane.add(withdrawButton,0,3);
+        pane.add(withdrawButton,0,4);
         withdrawButton.setPrefWidth(250);
         withdrawButton.setPrefHeight(50);
         withdrawButton.setFont(new Font("Arial", 24));
@@ -79,7 +88,7 @@ public class BankGui extends Application {
         });
 
         Button pastTransactionsButton = new Button("Past Transactions");
-        pane.add(pastTransactionsButton,0,4);
+        pane.add(pastTransactionsButton,0,5);
         pastTransactionsButton.setPrefWidth(250);
         pastTransactionsButton.setPrefHeight(50);
         pastTransactionsButton.setFont(new Font("Arial", 24));
@@ -93,7 +102,7 @@ public class BankGui extends Application {
         });
 
         Button transferButton = new Button("Transfer");
-        pane.add(transferButton,0,5);
+        pane.add(transferButton,0,6);
         transferButton.setPrefWidth(250);
         transferButton.setPrefHeight(50);
         transferButton.setFont(new Font("Arial", 24));
@@ -104,7 +113,7 @@ public class BankGui extends Application {
         });
 
         Button logoutButton = new Button("Logout");
-        pane.add(logoutButton,0,7);
+        pane.add(logoutButton,0,8);
         logoutButton.setPrefWidth(250);
         logoutButton.setPrefHeight(50);
         logoutButton.setFont(new Font("Arial", 24));
@@ -119,7 +128,8 @@ public class BankGui extends Application {
     }
 
     public void updateBalance(){
-        balanceLbl.setText("Current Balance: $" + user.getCurrentBalance());
+        balanceLbl.setText("");
+        balanceLbl.setText("Current Balance: $" + user.getTotalBalance());
         //balance.clear();
         //balance.setText(String.valueOf(user.getCurrentBalance()));
     }

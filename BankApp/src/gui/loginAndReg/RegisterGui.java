@@ -1,6 +1,7 @@
 package gui.loginAndReg;
 
 import MyJDBC.MyJDBC;
+import MyJDBC.auth.Auth;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -10,6 +11,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import java.security.NoSuchAlgorithmException;
 
 public class RegisterGui extends Application {
     private Stage stage;
@@ -68,23 +71,27 @@ public class RegisterGui extends Application {
             String reTypePassword = reTypePasswordField.getText();
 
             if (checkPasswords(password, reTypePassword) && username.length() > 0){
-                if (MyJDBC.registerUser(username, password)){
-                    Alert alertSuccesful = new Alert(Alert.AlertType.INFORMATION);
-                    alertSuccesful.setHeaderText("Succesfully Registered");
-                    alertSuccesful.setContentText("You have registered succesfully. OK to go to login page");
-                    alertSuccesful.showAndWait();
+                try {
+                    if (Auth.opretBankuserAction(username, password)){
+                        Alert alertSuccesful = new Alert(Alert.AlertType.INFORMATION);
+                        alertSuccesful.setHeaderText("Succesfully Registered");
+                        alertSuccesful.setContentText("You have registered succesfully. OK to go to login page");
+                        alertSuccesful.showAndWait();
 
-                    LoginGui loginGui = new LoginGui();
-                    try {
-                        loginGui.start(stage);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
+                        LoginGui loginGui = new LoginGui();
+                        try {
+                            loginGui.start(stage);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        Alert alertRegister = new Alert(Alert.AlertType.ERROR);
+                        alertRegister.setHeaderText("Invalid Input");
+                        alertRegister.setContentText("Username is already taken");
+                        alertRegister.showAndWait();
                     }
-                } else {
-                    Alert alertRegister = new Alert(Alert.AlertType.ERROR);
-                    alertRegister.setHeaderText("Invalid Input");
-                    alertRegister.setContentText("Username is already taken");
-                    alertRegister.showAndWait();
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
                 }
             } else {
                 Alert alertPassword = new Alert(Alert.AlertType.INFORMATION);

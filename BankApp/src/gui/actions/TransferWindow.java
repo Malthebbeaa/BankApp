@@ -60,7 +60,7 @@ public class TransferWindow extends Stage {
         Button transferButton = new Button("Transfer");
         transferButton.setOnAction(event -> {
             transferAction();
-            userFrom.setCurrentBalance(userFrom.getCurrentBalance().subtract(amount));
+            //userFrom.setCurrentBalance(userFrom.getCurrentBalance().subtract(amount));
             close();
         });
         pane.add(transferButton,0,2);
@@ -70,6 +70,7 @@ public class TransferWindow extends Stage {
         int userToId = userComboBox.getValue().getUserId();
         int userFromId = MyJDBC.getUserId(userFrom.getUsername());
         amount = BigDecimal.valueOf(Integer.valueOf(amountTxf.getText()));
-        return MyJDBC.transfer(userToId, userFromId, amount);
+
+        return MyJDBC.transfer(userToId, userFromId,"","","","", amount);
     }
 }

@@ -1,6 +1,7 @@
 package gui.loginAndReg;
 
 import MyJDBC.MyJDBC;
+import MyJDBC.auth.Auth;
 import application.model.User;
 import gui.BankGui;
 import gui.loginAndReg.RegisterGui;
@@ -13,6 +14,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import java.security.NoSuchAlgorithmException;
 
 public class LoginGui extends Application {
     private Stage stage;
@@ -57,13 +60,17 @@ public class LoginGui extends Application {
 
 
         Button loginButton = new Button("Login");
-        loginButton.setMaxWidth(Double.MAX_VALUE); // Make button fill the column width
-        GridPane.setHalignment(loginButton, HPos.CENTER); // Align center
+        loginButton.setMaxWidth(Double.MAX_VALUE);
+        GridPane.setHalignment(loginButton, HPos.CENTER);
         pane.add(loginButton,0,5);
         loginButton.setOnAction(event -> {
             String username = usernameTxf.getText();
             String password = passwordField.getText();
-            user = MyJDBC.validateUserLogin(username, password);
+            try {
+                user = Auth.loginAction(username, password);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
 
             if (user != null){
                 BankGui bankGui = new BankGui();

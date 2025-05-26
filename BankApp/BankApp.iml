@@ -8,6 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="javafx-swt" level="application" />
-    <orderEntry type="library" exported="" name="JDBC" level="application" />
+    <orderEntry type="library" exported="" name="sqljdbc4 - Kopi" level="project" />
   </component>
 </module>

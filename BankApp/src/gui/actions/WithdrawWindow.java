@@ -44,8 +44,8 @@ public class WithdrawWindow extends Stage {
 
     private void withdrawAction(){
         int userId = MyJDBC.getUserId(user.getUsername());
-        MyJDBC.withdraw(userId, new BigDecimal(Integer.valueOf(amountTxf.getText())));
-        user.setCurrentBalance(user.getCurrentBalance().subtract(new BigDecimal(Integer.valueOf(amountTxf.getText()))));
+        MyJDBC.withdraw(userId, new BigDecimal(Integer.valueOf(amountTxf.getText())), "", "");
+        //user.setCurrentBalance(user.getCurrentBalance().subtract(new BigDecimal(Integer.valueOf(amountTxf.getText()))));
         close();
     }
 }
