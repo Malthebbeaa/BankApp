@@ -188,4 +188,63 @@ public class MyJDBC {
         }
         return null;
     }
+
+    public static void updateSingleKonto(Konto konto) {
+        try {
+            Connection minConnection = DriverManager
+                    .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
+
+
+            String sql = "SELECT saldo FROM Konto WHERE kontoNr = ? AND regNr = ? AND user_id = ?";
+            PreparedStatement prestmt = minConnection.prepareStatement(sql);
+
+            prestmt.setString(1, konto.getKontoNr());
+            prestmt.setString(2, konto.getRegNr());
+            prestmt.setInt(3, konto.getOwner_id());
+
+            ResultSet res = prestmt.executeQuery();
+
+            if (res.next()) {
+                BigDecimal newSaldo = res.getBigDecimal(1);
+
+                konto.setSaldo(newSaldo);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Konto createKonto(User user,String kontoType, double initialSaldo) {
+        try {
+            Connection minConnection = DriverManager
+                    .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
+
+
+            String sql = "exec createAccount ?, ?, ?; select * from inserted";
+            PreparedStatement prestmt = minConnection.prepareStatement(sql);
+
+            prestmt.setInt(1, user.getUserId());
+            prestmt.setBigDecimal(2, new BigDecimal(initialSaldo));
+            prestmt.setString(3, kontoType);
+
+
+            ResultSet res = prestmt.executeQuery();
+
+            if (res.next()) {
+                int userId = res.getInt("user_id");
+                String kNr = res.getString("kontoNr");
+                String rNr = res.getString("regNr");
+                BigDecimal saldo = res.getBigDecimal("saldo");
+                String kontotype = res.getString("kontotype");
+
+                Konto konto = new Konto(userId, kNr, rNr, saldo, kontotype);
+                user.addKonto(konto);
+                return konto;
+            } else  {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

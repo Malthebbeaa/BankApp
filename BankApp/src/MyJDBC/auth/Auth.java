@@ -101,6 +101,7 @@ public class Auth {
         try {
             String resultPasswordHash = null;
             byte[] resultSalt = null;
+            minConnection = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
             String sql = "SELECT user_password, salt FROM BankUser WHERE username = ?";
             PreparedStatement prestmt = minConnection.prepareStatement(sql);
@@ -171,4 +172,20 @@ public class Auth {
         }
     }
 
+    public static void updateUserInformation(User user) {
+        try {
+            String sql = "SELECT * FROM Konto WHERE user_id = ?";
+
+            PreparedStatement prestmt = minConnection.prepareStatement(sql);
+            prestmt.setInt(1, user.getUserId());
+
+            ResultSet res = prestmt.executeQuery();
+
+            while (res.next()) {
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

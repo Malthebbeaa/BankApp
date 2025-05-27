@@ -46,7 +46,7 @@ public class BankGui extends Application {
         username.setFont(new Font(24));
         pane.add(username, 0,0);
 
-        balanceLbl = new Label("Current Balance: $");
+        balanceLbl = new Label("Current Balance: $" + user.getTotalBalance());
         balanceLbl.setFont(new Font(18));
         pane.add(balanceLbl,0,1);
 
@@ -112,8 +112,19 @@ public class BankGui extends Application {
             updateBalance();
         });
 
+        Button createAccButton = new Button("Create Account");
+        pane.add(createAccButton,0,6);
+        createAccButton.setPrefWidth(250);
+        createAccButton.setPrefHeight(50);
+        createAccButton.setFont(new Font("Arial", 24));
+        createAccButton.setOnAction(event -> {
+            CreateAccountWindow createAccountWindow = new CreateAccountWindow("Create Account", user);
+            createAccountWindow.showAndWait();
+            updateBalance();
+        });
+
         Button logoutButton = new Button("Logout");
-        pane.add(logoutButton,0,8);
+        pane.add(logoutButton,0,9);
         logoutButton.setPrefWidth(250);
         logoutButton.setPrefHeight(50);
         logoutButton.setFont(new Font("Arial", 24));
@@ -130,8 +141,6 @@ public class BankGui extends Application {
     public void updateBalance(){
         balanceLbl.setText("");
         balanceLbl.setText("Current Balance: $" + user.getTotalBalance());
-        //balance.clear();
-        //balance.setText(String.valueOf(user.getCurrentBalance()));
     }
     public void setUser(User user){
         this.user = user;

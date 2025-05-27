@@ -72,6 +72,7 @@ public class TransferWindow extends Stage {
         Button transferButton = new Button("Transfer");
         transferButton.setOnAction(event -> {
             transferAction();
+
             close();
         });
         pane.add(transferButton,0,10);
@@ -85,6 +86,12 @@ public class TransferWindow extends Stage {
         String toRNR = toRegNr.getText();
         Konto toKonto = MyJDBC.getKontoFromKontoNrAndRegNr(toKNR, toRNR);
 
-        return MyJDBC.transfer(fromKonto, toKonto, amount);
+        if (MyJDBC.transfer(fromKonto, toKonto, amount)) {
+            MyJDBC.updateSingleKonto(fromKonto);
+            MyJDBC.updateSingleKonto(toKonto);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

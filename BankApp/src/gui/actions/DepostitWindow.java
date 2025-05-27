@@ -63,9 +63,12 @@ public class DepostitWindow extends Stage {
     }
 
     private void depositAction(){
-        int userId = MyJDBC.getUserId(user.getUsername());
+        int userId = user.getUserId();
+        Konto konto = kontoComboBox.getValue();
         BigDecimal depositAmount = new BigDecimal(Integer.valueOf(amountTxf.getText()));
-        MyJDBC.deposit(userId, depositAmount, kontoComboBox.getValue());
+        MyJDBC.deposit(userId, depositAmount, konto);
+
+        MyJDBC.updateSingleKonto(konto);
         close();
     }
 }

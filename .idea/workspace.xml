@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cbe9dad-09d5-42c4-b534-914ab57454ea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BankApp/test/application/model/UserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/CreateAccountWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/BankApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/BankApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/application/model/Konto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/application/model/Konto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/application/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/application/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/MyJDBC/auth/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/MyJDBC/auth/Auth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/DepostitWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/DepostitWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/WithdrawWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/WithdrawWindow.java" afterDir="false" />
@@ -26,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>

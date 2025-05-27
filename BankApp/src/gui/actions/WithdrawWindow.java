@@ -65,9 +65,11 @@ public class WithdrawWindow extends Stage {
 
     private void withdrawAction(){
         int userId = MyJDBC.getUserId(user.getUsername());
+        Konto konto = kontoComboBox.getValue();
         BigDecimal withdrawAmount = new BigDecimal(Integer.valueOf(amountTxf.getText()));
 
-        MyJDBC.withdraw(userId, withdrawAmount, kontoComboBox.getValue());
+        MyJDBC.withdraw(userId, withdrawAmount, konto);
+        MyJDBC.updateSingleKonto(konto);
         close();
     }
 }
