@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cbe9dad-09d5-42c4-b534-914ab57454ea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqljdbc4___Kopi.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankApp/src/MyJDBC/auth/Auth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankApp/src/MyJDBC/auth/Sikkerhed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankApp/src/application/model/Konto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/KontiWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/BankApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/BankApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/application/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/application/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/DepostitWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/DepostitWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/WithdrawWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/WithdrawWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/loginAndReg/LoginGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/loginAndReg/LoginGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/loginAndReg/RegisterGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/loginAndReg/RegisterGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banking.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Banking.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="a65978b3-84dc-4393-b3cb-c13dd77cd10d" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,7 +51,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editor.preferences.completion"
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">

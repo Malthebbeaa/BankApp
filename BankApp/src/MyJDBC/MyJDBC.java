@@ -1,5 +1,6 @@
 package MyJDBC;
 
+import application.model.Konto;
 import application.model.Transaction;
 import application.model.User;
 
@@ -93,21 +94,24 @@ public class MyJDBC {
         }
     }
 
-    public static boolean transfer(int userIdTo, int userIdFrom, String fromKontoNr, String fromRegNr, String toKontoNr, String toRegNr, BigDecimal amount){
+    public static boolean transfer(Konto fromKonto, Konto toKonto, BigDecimal amount){
         try {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
             PreparedStatement preparedStatement = minConnection.prepareStatement("EXEC transferAction ?, ?, ?, ?, ?, ?, ?");
 
+            int fromUserId = getUserIdFromKontoAndReg(fromKonto.getKontoNr(), fromKonto.getRegNr());
+            int toUserId = getUserIdFromKontoAndReg(toKonto.getKontoNr(), toKonto.getRegNr());
+
             preparedStatement.clearParameters();
-            preparedStatement.setInt(1, userIdFrom);
-            preparedStatement.setInt(2, userIdTo);
+            preparedStatement.setInt(1, fromUserId);
+            preparedStatement.setInt(2, toUserId);
             preparedStatement.setBigDecimal(3, amount);
-            preparedStatement.setString(4, fromKontoNr);
-            preparedStatement.setString(5, fromRegNr);
-            preparedStatement.setString(6, toKontoNr);
-            preparedStatement.setString(7, toRegNr);
+            preparedStatement.setString(4, fromKonto.getKontoNr());
+            preparedStatement.setString(5, fromKonto.getRegNr());
+            preparedStatement.setString(6, toKonto.getKontoNr());
+            preparedStatement.setString(7, toKonto.getRegNr());
 
             return preparedStatement.executeUpdate() == 1;
         } catch (SQLException e) {
@@ -133,5 +137,55 @@ public class MyJDBC {
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    public static int getUserIdFromKontoAndReg(String kontoNr, String regNr) {
+        try {
+            Connection minConnection = DriverManager
+                    .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
+
+            PreparedStatement preparedStatement = minConnection.prepareStatement("exec getUserIdFromKontoAndReg ?, ?");
+
+            preparedStatement.clearParameters();
+            preparedStatement.setString(1, kontoNr);
+            preparedStatement.setString(2, regNr);
+            ResultSet res = preparedStatement.executeQuery();
+
+            if (res.next()) {
+                return res.getInt(1);
+            }
+            return 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Konto getKontoFromKontoNrAndRegNr(String kontoNr, String regNr) {
+        try {
+            Connection minConnection = DriverManager
+                    .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
+
+
+            String sql = "SELECT * FROM Konto WHERE kontoNr = ? AND regNr = ?";
+            PreparedStatement prestmt = minConnection.prepareStatement(sql);
+            prestmt.setString(1, kontoNr);
+            prestmt.setString(2, regNr);
+
+            ResultSet result = prestmt.executeQuery();
+
+            if (result.next()) {
+                int userId = result.getInt("user_id");
+                String kNr = result.getString("kontoNr");
+                String rNr = result.getString("regNr");
+                BigDecimal saldo = result.getBigDecimal("saldo");
+                String kontotype = result.getString("kontotype");
+
+                Konto konto = new Konto(userId, kNr, rNr, saldo, kontotype);
+                return konto;
+            }
+        } catch (SQLException e) {
+
+        }
+        return null;
     }
 }
