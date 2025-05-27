@@ -72,7 +72,6 @@ public class TransferWindow extends Stage {
         Button transferButton = new Button("Transfer");
         transferButton.setOnAction(event -> {
             transferAction();
-            //userFrom.setCurrentBalance(userFrom.getCurrentBalance().subtract(amount));
             close();
         });
         pane.add(transferButton,0,10);

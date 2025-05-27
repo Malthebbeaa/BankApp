@@ -30,7 +30,7 @@ public class MyJDBC {
         }
     }
 
-    public static boolean deposit(int userId, BigDecimal amount, String kontoNr, String regNr){
+    public static boolean deposit(int userId, BigDecimal amount, Konto konto){
         try {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
@@ -40,8 +40,8 @@ public class MyJDBC {
             preparedStatement.clearParameters();
             preparedStatement.setInt(1, userId);
             preparedStatement.setBigDecimal(2, amount);
-            preparedStatement.setString(3, kontoNr);
-            preparedStatement.setString(4, regNr);
+            preparedStatement.setString(3, konto.getKontoNr());
+            preparedStatement.setString(4, konto.getRegNr());
 
             return preparedStatement.executeUpdate() == 1;
 
@@ -50,7 +50,7 @@ public class MyJDBC {
         }
     }
 
-    public static boolean withdraw(int userId, BigDecimal amount, String kontoNr, String regNr){
+    public static boolean withdraw(int userId, BigDecimal amount, Konto konto){
         try {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
@@ -60,8 +60,8 @@ public class MyJDBC {
             preparedStatement.clearParameters();
             preparedStatement.setInt(1, userId);
             preparedStatement.setBigDecimal(2, amount);
-            preparedStatement.setString(3, kontoNr);
-            preparedStatement.setString(4, regNr);
+            preparedStatement.setString(3, konto.getKontoNr());
+            preparedStatement.setString(4, konto.getRegNr());
 
             return preparedStatement.executeUpdate() == 1;
         } catch (SQLException e) {

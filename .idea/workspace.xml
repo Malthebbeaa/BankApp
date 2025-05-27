@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cbe9dad-09d5-42c4-b534-914ab57454ea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BankApp/test/application/model/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/BankApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/BankApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/MyJDBC/MyJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/application/model/Konto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/application/model/Konto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/application/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/application/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/DepostitWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/DepostitWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/TransferWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/WithdrawWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/WithdrawWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -42,9 +49,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "last_opened_file_path": "/Users/malthebrahebjerregaard/Desktop/Programmering 2/BankApp/Bank/BankApp/src/MyJDBC",
@@ -57,6 +70,12 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/BankApp/src/MyJDBC" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="application.model" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -86,9 +105,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserTest.addKonto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BankApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="application.model" />
+      <option name="MAIN_CLASS_NAME" value="application.model.UserTest" />
+      <option name="METHOD_NAME" value="addKonto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.getKonti" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BankApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="application.model" />
+      <option name="MAIN_CLASS_NAME" value="application.model.UserTest" />
+      <option name="METHOD_NAME" value="getKonti" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.getTotalBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BankApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="application.model" />
+      <option name="MAIN_CLASS_NAME" value="application.model.UserTest" />
+      <option name="METHOD_NAME" value="getTotalBalance" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.UserTest.getTotalBalance" />
+        <item itemvalue="JUnit.UserTest.getKonti" />
+        <item itemvalue="JUnit.UserTest.addKonto" />
         <item itemvalue="Application.BankGui" />
       </list>
     </recent_temporary>

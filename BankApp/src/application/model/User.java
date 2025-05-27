@@ -29,7 +29,7 @@ public class User {
         BigDecimal totalBalance = new BigDecimal(0);
 
         for(Konto konto : konti) {
-            totalBalance.add(konto.getSaldo());
+            totalBalance = totalBalance.add(konto.getSaldo());
         }
 
         return totalBalance;

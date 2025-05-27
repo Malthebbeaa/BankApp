@@ -3,14 +3,6 @@ package application.model;
 import java.math.BigDecimal;
 
 public class Konto {
-    /*
-    user_id int FOREIGN KEY REFERENCES BankUser(user_id),
-    kontoNr char(7),
-    regNr char(4),
-    saldo DECIMAL(10,2),
-    kontoType VARCHAR(20),
-    PRIMARY KEY (kontoNr, regNr)
-     */
     private int owner_id;
     private String kontoNr;
     private String regNr;
