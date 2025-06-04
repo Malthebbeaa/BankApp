@@ -1,10 +1,8 @@
 package gui.loginAndReg;
 
-import MyJDBC.MyJDBC;
 import MyJDBC.auth.Auth;
 import application.model.User;
 import gui.BankGui;
-import gui.loginAndReg.RegisterGui;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;

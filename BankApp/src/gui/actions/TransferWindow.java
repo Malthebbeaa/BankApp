@@ -1,6 +1,7 @@
 package gui.actions;
 
-import MyJDBC.MyJDBC;
+import MyJDBC.GET.GETRequests;
+import MyJDBC.PUT_POST.PUTAndPOSTRequests;
 import application.model.Konto;
 import application.model.User;
 import javafx.collections.FXCollections;
@@ -84,11 +85,11 @@ public class TransferWindow extends Stage {
 
         String toKNR = toKontoNr.getText();
         String toRNR = toRegNr.getText();
-        Konto toKonto = MyJDBC.getKontoFromKontoNrAndRegNr(toKNR, toRNR);
+        Konto toKonto = GETRequests.getKontoFromKontoNrAndRegNr(toKNR, toRNR);
 
-        if (MyJDBC.transfer(fromKonto, toKonto, amount)) {
-            MyJDBC.updateSingleKonto(fromKonto);
-            MyJDBC.updateSingleKonto(toKonto);
+        if (PUTAndPOSTRequests.transfer(fromKonto, toKonto, amount)) {
+            PUTAndPOSTRequests.updateSingleKonto(fromKonto);
+            PUTAndPOSTRequests.updateSingleKonto(toKonto);
             return true;
         } else {
             return false;

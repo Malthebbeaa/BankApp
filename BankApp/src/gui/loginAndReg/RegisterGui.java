@@ -1,6 +1,5 @@
 package gui.loginAndReg;
 
-import MyJDBC.MyJDBC;
 import MyJDBC.auth.Auth;
 import javafx.application.Application;
 import javafx.geometry.HPos;

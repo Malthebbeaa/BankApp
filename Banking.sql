@@ -287,9 +287,20 @@ BEGIN
     END CATCH
 END;
 
+--stored procedure user_id fra konto og reg
+go;
+CREATE OR ALTER PROC getUserIdFromKontoAndReg
+@kontoNr CHAR(7),
+@regNr CHAR(4)
+AS
+BEGIN
+    SELECT BU.user_id FROM BankUser BU
+    JOIN Konto K ON BU.user_id = K.user_id
+    WHERE K.kontoNr = @kontoNr AND K.regNr = @regNr
+END;
 
 
-EXEC createAccount @userid = 1, @initialSaldo = 25000.00, @type = 'BoligOpsparing';
+EXEC createAccount @userid = 2, @initialSaldo = 5000.00, @type = 'Lønkonto';
 
 EXEC deposit 1, 2500.00, '9349759', '4830' 
 

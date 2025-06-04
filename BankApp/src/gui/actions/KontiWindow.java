@@ -32,11 +32,11 @@ public class KontiWindow extends Stage {
         pane.setVgap(10);
         pane.setPadding(new Insets(20));
         pane.setAlignment(Pos.CENTER);
-        Label kontiLbl = new Label( user.getUsername()+ "'s Konti");
+        Label kontiLbl = new Label( user.getUsername()+ "'s Accounts");
         kontiLbl.setFont(new Font(24));
         pane.add(kontiLbl, 0,0, 3, 1);
 
-        Label kontoNrLbl = new Label("KontoNr");
+        Label kontoNrLbl = new Label("AccountNr");
         kontoNrLbl.setFont(new Font(18));
         Label regNrLbl = new Label("RegNr");
         regNrLbl.setFont(new Font(18));

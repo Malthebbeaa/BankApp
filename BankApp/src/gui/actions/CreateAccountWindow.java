@@ -1,6 +1,6 @@
 package gui.actions;
 
-import MyJDBC.MyJDBC;
+import MyJDBC.PUT_POST.PUTAndPOSTRequests;
 import application.model.Konto;
 import application.model.User;
 import javafx.geometry.Insets;
@@ -10,10 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.math.BigDecimal;
 
 public class CreateAccountWindow extends Stage {
     private User user;
@@ -37,7 +34,7 @@ public class CreateAccountWindow extends Stage {
         pane.setPadding(new Insets(20));
         pane.setAlignment(Pos.CENTER);
 
-        Label kontoTypeLbl = new Label("Konto Type");
+        Label kontoTypeLbl = new Label("Account Type");
         pane.add(kontoTypeLbl, 0,0);
         kontoTypeTxf = new TextField();
         pane.add(kontoTypeTxf, 0, 1);
@@ -58,7 +55,7 @@ public class CreateAccountWindow extends Stage {
         String kontoType = kontoTypeTxf.getText();
         double initalSaldo = Double.valueOf(initialSaldoTxf.getText());
 
-        Konto konto = MyJDBC.createKonto(user, kontoType, initalSaldo);
+        Konto konto = PUTAndPOSTRequests.createKonto(user, kontoType, initalSaldo);
 
         return konto;
     }

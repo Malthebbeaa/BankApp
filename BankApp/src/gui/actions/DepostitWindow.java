@@ -1,6 +1,6 @@
 package gui.actions;
 
-import MyJDBC.MyJDBC;
+import MyJDBC.PUT_POST.PUTAndPOSTRequests;
 import application.model.Konto;
 import application.model.User;
 import javafx.collections.FXCollections;
@@ -45,7 +45,7 @@ public class DepostitWindow extends Stage {
         pane.add(amountTxf, 0,1);
 
 
-        Label kontoLbl = new Label("Konto:");
+        Label kontoLbl = new Label("Account:");
         pane.add(kontoLbl, 0,2);
         ObservableList kontolist = FXCollections.observableArrayList();
         for (Konto konto : user.getKonti()) {
@@ -66,9 +66,9 @@ public class DepostitWindow extends Stage {
         int userId = user.getUserId();
         Konto konto = kontoComboBox.getValue();
         BigDecimal depositAmount = new BigDecimal(Integer.valueOf(amountTxf.getText()));
-        MyJDBC.deposit(userId, depositAmount, konto);
+        PUTAndPOSTRequests.deposit(userId, depositAmount, konto);
 
-        MyJDBC.updateSingleKonto(konto);
+        PUTAndPOSTRequests.updateSingleKonto(konto);
         close();
     }
 }

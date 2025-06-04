@@ -22,20 +22,21 @@ public class BankGui extends Application {
     private User user;
     private TextField balance;
     private Label balanceLbl;
+    private GridPane pane;
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
         stage.setTitle("Banking Page");
-        GridPane pane = new GridPane();
+        pane = new GridPane();
         pane.setPrefSize(420, 600);
-        initContent(pane);
+        initContent();
 
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.show();
     }
 
-    private void initContent(GridPane pane) {
+    private void initContent() {
         pane.setHgap(10);
         pane.setVgap(10);
         pane.setPadding(new Insets(20));
@@ -51,47 +52,27 @@ public class BankGui extends Application {
         pane.add(balanceLbl,0,1);
 
 
-        Button kontiButton = new Button("Konti");
-        pane.add(kontiButton, 0,2);
-        kontiButton.setPrefWidth(250);
-        kontiButton.setPrefHeight(50);
-        kontiButton.setFont(new Font("Arial", 24));
-
+        Button kontiButton = createActionButtonWithTitleAndPosition("Accounts", 2);
         kontiButton.setOnAction(event -> {
             KontiWindow kontiWindow = new KontiWindow("Konti", user);
             kontiWindow.showAndWait();
-
         });
 
-        Button depositButton = new Button("Deposit");
-        pane.add(depositButton,0,3);
-        depositButton.setPrefWidth(250);
-        depositButton.setPrefHeight(50);
-        depositButton.setFont(new Font("Arial", 24));
-
+        Button depositButton = createActionButtonWithTitleAndPosition("Deposit", 3);
         depositButton.setOnAction(event -> {
             DepostitWindow depostitWindow = new DepostitWindow("Deposit", user);
             depostitWindow.showAndWait();
             updateBalance();
         });
 
-        Button withdrawButton = new Button("Withdraw");
-        pane.add(withdrawButton,0,4);
-        withdrawButton.setPrefWidth(250);
-        withdrawButton.setPrefHeight(50);
-        withdrawButton.setFont(new Font("Arial", 24));
-
+        Button withdrawButton = createActionButtonWithTitleAndPosition("Withdraw", 4);
         withdrawButton.setOnAction(event -> {
             WithdrawWindow withdrawWindow = new WithdrawWindow("Withdraw", user);
             withdrawWindow.showAndWait();
             updateBalance();
         });
 
-        Button pastTransactionsButton = new Button("Past Transactions");
-        pane.add(pastTransactionsButton,0,5);
-        pastTransactionsButton.setPrefWidth(250);
-        pastTransactionsButton.setPrefHeight(50);
-        pastTransactionsButton.setFont(new Font("Arial", 24));
+        Button pastTransactionsButton = createActionButtonWithTitleAndPosition("Past Transactions", 5);
         pastTransactionsButton.setOnAction(event -> {
             try {
                 PastTransactionWindow pastTransactionWindow = new PastTransactionWindow("PastTrans", user);
@@ -101,33 +82,21 @@ public class BankGui extends Application {
             }
         });
 
-        Button transferButton = new Button("Transfer");
-        pane.add(transferButton,0,6);
-        transferButton.setPrefWidth(250);
-        transferButton.setPrefHeight(50);
-        transferButton.setFont(new Font("Arial", 24));
+        Button transferButton = createActionButtonWithTitleAndPosition("Transfer", 6);
         transferButton.setOnAction(event -> {
             TransferWindow transferWindow = new TransferWindow("Transfer", user);
             transferWindow.showAndWait();
             updateBalance();
         });
 
-        Button createAccButton = new Button("Create Account");
-        pane.add(createAccButton,0,6);
-        createAccButton.setPrefWidth(250);
-        createAccButton.setPrefHeight(50);
-        createAccButton.setFont(new Font("Arial", 24));
+        Button createAccButton = createActionButtonWithTitleAndPosition("Create Account", 7);
         createAccButton.setOnAction(event -> {
             CreateAccountWindow createAccountWindow = new CreateAccountWindow("Create Account", user);
             createAccountWindow.showAndWait();
             updateBalance();
         });
 
-        Button logoutButton = new Button("Logout");
-        pane.add(logoutButton,0,9);
-        logoutButton.setPrefWidth(250);
-        logoutButton.setPrefHeight(50);
-        logoutButton.setFont(new Font("Arial", 24));
+        Button logoutButton = createActionButtonWithTitleAndPosition("Logout", 9);
         logoutButton.setOnAction(event -> {
             LoginGui loginGui = new LoginGui();
             try {
@@ -138,8 +107,17 @@ public class BankGui extends Application {
         });
     }
 
+    private Button createActionButtonWithTitleAndPosition(String title, int position) {
+        Button button = new Button(title);
+        pane.add(button,0,position);
+        button.setPrefWidth(250);
+        button.setPrefHeight(50);
+        button.setFont(new Font("Arial", 24));
+
+        return button;
+    }
+
     public void updateBalance(){
-        balanceLbl.setText("");
         balanceLbl.setText("Current Balance: $" + user.getTotalBalance());
     }
     public void setUser(User user){

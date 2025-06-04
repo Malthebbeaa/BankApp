@@ -1,6 +1,6 @@
 package gui.actions;
 
-import MyJDBC.MyJDBC;
+import MyJDBC.GET.GETRequests;
 import application.model.Transaction;
 import application.model.User;
 import javafx.geometry.Insets;
@@ -13,7 +13,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -51,8 +50,8 @@ public class PastTransactionWindow extends Stage {
         pane.add(typeLbl, 1, 0);
         pane.add(amountLbl, 2, 0);
 
-        int userId = MyJDBC.getUserId(user.getUsername());
-        ArrayList<Transaction> pastTransactions = MyJDBC.pastTransactions(userId);
+        int userId = GETRequests.getUserId(user.getUsername());
+        ArrayList<Transaction> pastTransactions = GETRequests.pastTransactions(userId);
 
         for (int i = 0; i < pastTransactions.size(); i++) {
             Transaction transaction = pastTransactions.get(i);

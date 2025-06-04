@@ -1,6 +1,7 @@
 package gui.actions;
 
-import MyJDBC.MyJDBC;
+import MyJDBC.GET.GETRequests;
+import MyJDBC.PUT_POST.PUTAndPOSTRequests;
 import application.model.Konto;
 import application.model.User;
 import javafx.collections.FXCollections;
@@ -45,7 +46,7 @@ public class WithdrawWindow extends Stage {
         amountTxf = new TextField();
         pane.add(amountTxf, 0,1);
 
-        Label kontoLbl = new Label("Konto:");
+        Label kontoLbl = new Label("Account:");
         pane.add(kontoLbl, 0,2);
         ObservableList kontolist = FXCollections.observableArrayList();
         for (Konto konto : user.getKonti()) {
@@ -64,12 +65,12 @@ public class WithdrawWindow extends Stage {
     }
 
     private void withdrawAction(){
-        int userId = MyJDBC.getUserId(user.getUsername());
+        int userId = GETRequests.getUserId(user.getUsername());
         Konto konto = kontoComboBox.getValue();
         BigDecimal withdrawAmount = new BigDecimal(Integer.valueOf(amountTxf.getText()));
 
-        MyJDBC.withdraw(userId, withdrawAmount, konto);
-        MyJDBC.updateSingleKonto(konto);
+        PUTAndPOSTRequests.withdraw(userId, withdrawAmount, konto);
+        PUTAndPOSTRequests.updateSingleKonto(konto);
         close();
     }
 }
