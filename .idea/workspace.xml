@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7cbe9dad-09d5-42c4-b534-914ab57454ea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/BankGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/CreateAccountWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/CreateAccountWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/DepostitWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/DepostitWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/KontiWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/KontiWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankApp/src/gui/actions/WithdrawWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankApp/src/gui/actions/WithdrawWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banking.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Banking.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

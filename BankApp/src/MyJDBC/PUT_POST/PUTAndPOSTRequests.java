@@ -14,6 +14,7 @@ public class PUTAndPOSTRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             PreparedStatement preparedStatement = minConnection.prepareStatement("EXEC deposit ?, ?, ?, ?");
 
             preparedStatement.clearParameters();
@@ -34,6 +35,7 @@ public class PUTAndPOSTRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             PreparedStatement preparedStatement = minConnection.prepareStatement("EXEC withdraw ?, ?, ?, ?");
 
             preparedStatement.clearParameters();
@@ -53,6 +55,7 @@ public class PUTAndPOSTRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             PreparedStatement preparedStatement = minConnection.prepareStatement("EXEC transferAction ?, ?, ?, ?, ?, ?, ?");
 
             int fromUserId = GETRequests.getUserIdFromKontoAndReg(fromKonto.getKontoNr(), fromKonto.getRegNr());
@@ -73,26 +76,6 @@ public class PUTAndPOSTRequests {
         }
     }
 
-    public static ArrayList<User> getUsers(){
-        try {
-            ArrayList<User> users = new ArrayList<>();
-            Connection minConnection = DriverManager
-                    .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
-
-            PreparedStatement preparedStatement = minConnection.prepareStatement("SELECT * FROM BankUser");
-            ResultSet res = preparedStatement.executeQuery();
-
-            while (res.next()){
-                User user = new User(res.getInt(1), res.getString(2));
-                users.add(user);
-            }
-
-            return users;
-        } catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
-
 
     public static void updateSingleKonto(Konto konto) {
         try {
@@ -100,6 +83,7 @@ public class PUTAndPOSTRequests {
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
 
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             String sql = "SELECT saldo FROM Konto WHERE kontoNr = ? AND regNr = ? AND user_id = ?";
             PreparedStatement prestmt = minConnection.prepareStatement(sql);
 
@@ -124,7 +108,7 @@ public class PUTAndPOSTRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
-
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             String sql = "exec createAccount ?, ?, ?; select * from inserted";
             PreparedStatement prestmt = minConnection.prepareStatement(sql);
 

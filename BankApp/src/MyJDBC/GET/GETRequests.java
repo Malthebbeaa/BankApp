@@ -15,6 +15,7 @@ public class GETRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
             PreparedStatement preparedStatement = minConnection.prepareStatement("SELECT user_id FROM BankUser WHERE username = ?");
 
             preparedStatement.clearParameters();
@@ -36,6 +37,7 @@ public class GETRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
             PreparedStatement preparedStatement = minConnection.prepareStatement("EXEC pastTransactions ?");
 
             preparedStatement.clearParameters();
@@ -61,6 +63,7 @@ public class GETRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
             PreparedStatement preparedStatement = minConnection.prepareStatement("SELECT * FROM BankUser");
             ResultSet res = preparedStatement.executeQuery();
 
@@ -80,6 +83,7 @@ public class GETRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
             PreparedStatement preparedStatement = minConnection.prepareStatement("exec getUserIdFromKontoAndReg ?, ?");
 
             preparedStatement.clearParameters();
@@ -101,7 +105,7 @@ public class GETRequests {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
-
+            minConnection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
             String sql = "SELECT * FROM Konto WHERE kontoNr = ? AND regNr = ?";
             PreparedStatement prestmt = minConnection.prepareStatement(sql);
             prestmt.setString(1, kontoNr);
