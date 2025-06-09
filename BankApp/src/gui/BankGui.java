@@ -1,5 +1,6 @@
 package gui;
 
+import MyJDBC.GET.GETRequests;
 import application.model.User;
 import gui.actions.*;
 import gui.loginAndReg.LoginGui;

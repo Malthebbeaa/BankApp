@@ -57,6 +57,12 @@ public class CreateAccountWindow extends Stage {
 
         Konto konto = PUTAndPOSTRequests.createKonto(user, kontoType, initalSaldo);
 
+        clearFields();
         return konto;
+    }
+
+    private void clearFields(){
+        kontoTypeTxf.clear();
+        initialSaldoTxf.clear();
     }
 }

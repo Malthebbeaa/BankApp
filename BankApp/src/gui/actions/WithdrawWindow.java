@@ -70,7 +70,7 @@ public class WithdrawWindow extends Stage {
         BigDecimal withdrawAmount = new BigDecimal(Integer.valueOf(amountTxf.getText()));
 
         PUTAndPOSTRequests.withdraw(userId, withdrawAmount, konto);
-        PUTAndPOSTRequests.updateSingleKonto(konto);
+        PUTAndPOSTRequests.updateKontoObject(konto);
         close();
     }
 }

@@ -68,7 +68,7 @@ public class DepostitWindow extends Stage {
         BigDecimal depositAmount = new BigDecimal(Integer.valueOf(amountTxf.getText()));
         PUTAndPOSTRequests.deposit(userId, depositAmount, konto);
 
-        PUTAndPOSTRequests.updateSingleKonto(konto);
+        PUTAndPOSTRequests.updateKontoObject(konto);
         close();
     }
 }

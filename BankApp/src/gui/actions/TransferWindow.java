@@ -88,8 +88,8 @@ public class TransferWindow extends Stage {
         Konto toKonto = GETRequests.getKontoFromKontoNrAndRegNr(toKNR, toRNR);
 
         if (PUTAndPOSTRequests.transfer(fromKonto, toKonto, amount)) {
-            PUTAndPOSTRequests.updateSingleKonto(fromKonto);
-            PUTAndPOSTRequests.updateSingleKonto(toKonto);
+            PUTAndPOSTRequests.updateKontoObject(fromKonto);
+            PUTAndPOSTRequests.updateKontoObject(toKonto);
             return true;
         } else {
             return false;

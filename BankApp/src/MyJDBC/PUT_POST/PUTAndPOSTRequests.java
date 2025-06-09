@@ -6,7 +6,6 @@ import application.model.User;
 
 import java.math.BigDecimal;
 import java.sql.*;
-import java.util.ArrayList;
 
 public class PUTAndPOSTRequests {
     public static boolean deposit(int userId, BigDecimal amount, Konto konto){
@@ -77,7 +76,7 @@ public class PUTAndPOSTRequests {
     }
 
 
-    public static void updateSingleKonto(Konto konto) {
+    public static void updateKontoObject(Konto konto) {
         try {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
@@ -103,37 +102,40 @@ public class PUTAndPOSTRequests {
         }
     }
 
-    public static Konto createKonto(User user,String kontoType, double initialSaldo) {
+
+    public static Konto createKonto(User user, String kontoType, double initialSaldo) {
         try {
             Connection minConnection = DriverManager
                     .getConnection("jdbc:sqlserver://localhost;databaseName=bankdb;user=sa;password=MyStrongPass123;");
 
             minConnection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-            String sql = "exec createAccount ?, ?, ?; select * from inserted";
-            PreparedStatement prestmt = minConnection.prepareStatement(sql);
 
-            prestmt.setInt(1, user.getUserId());
-            prestmt.setBigDecimal(2, new BigDecimal(initialSaldo));
-            prestmt.setString(3, kontoType);
+            CallableStatement callStmt = minConnection.prepareCall("{call createAccount(?, ?, ?)}");
+            callStmt.setInt(1, user.getUserId());
+            callStmt.setBigDecimal(2, new BigDecimal(initialSaldo));
+            callStmt.setString(3, kontoType);
 
+            boolean hasResults = callStmt.execute();
 
-            ResultSet res = prestmt.executeQuery();
+            if (hasResults) {
+                ResultSet res = callStmt.getResultSet();
+                if (res.next()) {
+                    int userId = res.getInt("user_id");
+                    String kNr = res.getString("kontoNr");
+                    String rNr = res.getString("regNr");
+                    BigDecimal saldo = res.getBigDecimal("saldo");
+                    String kontotype = res.getString("kontotype");
 
-            if (res.next()) {
-                int userId = res.getInt("user_id");
-                String kNr = res.getString("kontoNr");
-                String rNr = res.getString("regNr");
-                BigDecimal saldo = res.getBigDecimal("saldo");
-                String kontotype = res.getString("kontotype");
-
-                Konto konto = new Konto(userId, kNr, rNr, saldo, kontotype);
-                user.addKonto(konto);
-                return konto;
-            } else  {
-                return null;
+                    Konto konto = new Konto(userId, kNr, rNr, saldo, kontotype);
+                    user.addKonto(konto);
+                    return konto;
+                }
             }
+
+            return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
 }
